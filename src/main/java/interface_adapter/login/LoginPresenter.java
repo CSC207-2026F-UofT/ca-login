@@ -31,7 +31,8 @@ public class LoginPresenter implements LoginOutputBoundary {
         this.loggedInViewModel.notifyStateChanged();
 
         // and clear everything from the LoginViewModel's state
-        loginViewModel.setState(new LoginState());
+        this.loginViewModel.setState(new LoginState());
+        this.loginViewModel.notifyStateChanged();
 
         // switch to the logged in view
         this.viewManagerModel.setState(LoggedInViewModel.VIEW_NAME);

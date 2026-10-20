@@ -1,14 +1,13 @@
 @startuml
 skinparam dpi 300
-actor User
+actor LoginUseCaseInteractor
 participant LoginPresenter as LP
 participant LoggedInViewModel as LVM
 participant LoggedInState as LS
-participant PropertyChangeSupport as PCS
 participant LoggedInView as LIV
 
 activate LP
-User -> LP : prepareSuccessView(LoginOutputData)
+LoginUseCaseInteractor -> LP : prepareSuccessView(LoginOutputData)
 LP -> LVM : getState()
 activate LVM
 LVM --> LP : LoggedInState
@@ -19,19 +18,25 @@ activate LS
 LS --> LP
 deactivate LS
 
-LP -> PCS : firePropertyChange()
-activate PCS
+LP -> LVM : notifyStateChanged()
+activate LVM
 
 
-PCS -> LIV : propertyChange(evt)
+LVM -> LIV : stateChanged()
 activate LIV
 
-LIV -> LIV : update UI with LoggedInState
 
-LIV --> PCS
+LIV -> LVM : getState()
+LVM --> LIV : LoggedInState
+
+LIV -> LIV : update UI from state
+
+LIV --> LVM
 deactivate LIV
-PCS --> LP
-deactivate PCS
+
+LVM --> LP
+deactivate LVM
+
 
 ... Diagram continues with LoginViewModel and ViewManager updates...
 
