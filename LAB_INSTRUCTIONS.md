@@ -36,43 +36,54 @@ Open the project in IntelliJ. Open [Main.java](src/main/java/app/Main.java) and 
 > To answer the last two questions above, you will need to look inside the details
 > of `AppBuilder`.
 
-**Make sure that each member of your team can successfully run `Main`.**
-- Ensure that you are each able to create a new user and log in.
+Make sure that each member of your team can successfully run `Main`,
+and that you are each able to create a new user and log in.
 
 > Note: you may need to set the Project SDK in the `Project Structure...` menu, and possibly
 > also manually link the Maven project if the app won't run when you try to run Main.
 
-### Task 1.1: Exploring the login use case
+### Task 1.1: Tracing the Login Use Case
 
-Let's take a tour of the login use case code:
+Before implementing the logout use case, your TA will demonstrate the execution of the login
+use case using the debugger.
 
-- In IntelliJ, find the `LoginController` class and open it.
+1. In IntelliJ, find the `LoginController` class and open it.
 
-- Set a breakpoint inside its `execute` method.
+2. Set a breakpoint inside its `execute` method.
 
-- Run the program in debug mode.
+3. Run the program in debug mode.
 
-- On the login page, attempt to log in with an existing account. When you click the button,
+4. On the login page, attempt to log in with an existing account. When you click the button,
   the breakpoint that you set will be triggered.
 
-- **Step through the code to trace the execution of the login use case.**
+5. **Step through the code to trace the execution of the login use case.**
 
-As you trace through the code, identify:
-- Which ViewModel is updated first?
+As a team, follow along. By the end of the walkthrough,
+make sure that you are able to answer:
+
+- Which classes are involved in handling a login request?
 - How does the application switch from the login view to the logged-in view?
+
+> You do not need to understand every line of code.
+> Focus on identifying the major components involved and the overall flow of control.
 
 The login use case is implemented using our CA Engine (included here for your reference):
 
 ![The Clean Architecture Engine diagram](images/CA-Engine.png)
 
-> Pay attention to the classes involved and the flow of execution.
-> When your team implements the logout use case next, your code will need
-> to have a very similar structure.
+> As you watch the walkthrough, pay attention to the order in which the Controller,
+> Interactor, Presenter, ViewModels, and Views interact.
+> Your logout implementation will follow a very similar structure.
 
-To better understand how the view gets updated, your team may find it useful
+The UML Class diagram for the core classes related to the login use case are also shown below.
+The diagram was generated using IntelliJ.
+
+![The login use case core classes](images/login-with-layers.png)
+
+To better understand how the view gets updated, your team may also find it useful
 to review the
 [Extra Advice about the Presenters, Views, and ViewModels](#extra-advice-about-the-presenters-views-and-viewmodels)
-section.
+section as you work on the logout use case.
 
 ## Task 2: Implementing the Logout Use Case
 
@@ -110,37 +121,42 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 ---
 
-- `Main.java` (tip: look at how other use cases have been added)
-    -[ ] TODO: add the logout use case to the app
+`Main.java` (tip: look at how other use cases have been added)
+
+- [ ] TODO: add the logout use case to the app
 
 ---
 
-- `LoggedInView.java` (tip: refer to the other views for similar code)
-    -[ ] TODO: save the logout controller in the instance variable.
-    -[ ] TODO: execute the logout use case through the Controller
+`LoggedInView.java` (tip: refer to the other views for similar code)
+
+- [ ] TODO: save the logout controller in the instance variable.
+- [ ] TODO: execute the logout use case through the Controller
 
 ---
 
-- `LogoutController.java` (tip: refer to the other controllers for similar code)
-    -[ ] TODO: Save the interactor in the instance variable.
-    -[ ] TODO: run the use case interactor for the logout use case
+`LogoutController.java` (tip: refer to the other controllers for similar code)
+
+- [ ] TODO: Save the interactor in the instance variable.
+- [ ] TODO: run the use case interactor for the logout use case
 
 > Note: there is no input data necessary for this use case.
 
 ---
 
-- `LogoutInteractor.java` (tip: refer to `ChangePasswordInteractor.java` for similar code)
-    -[ ] TODO: save the DAO and Presenter in the instance variables.
-    -[ ] TODO: implement the logic of the Logout Use Case
+`LogoutInteractor.java` (tip: refer to `ChangePasswordInteractor.java` for similar code)
+
+- [ ] TODO: save the DAO and Presenter in the instance variables.
+- [ ] TODO: implement the logic of the Logout Use Case
 
 > Note: there is no input data necessary for this use case.
 
 ---
 
-- `LogoutPresenter.java` (tip: refer to `SignupPresenter.java` for similar code)
-    -[ ] TODO: assign to the three instance variables.
-    -[ ] TODO: have prepareSuccessView update the LoggedInState
-    -[ ] TODO: have prepareSuccessView update the LoginState
+`LogoutPresenter.java` (tip: refer to `SignupPresenter.java` for similar code)
+
+- [ ] TODO: assign to the three instance variables.
+- [ ] TODO: have prepareSuccessView update the LoggedInState
+- [ ] TODO: have prepareSuccessView update the LoginState
 
 ---
 
@@ -148,8 +164,7 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 With the work divided up, your team should complete the TODOs through a sequence of PRs.
 
 1. Make a branch for your work.
-
-> Make sure that you switch to your new branch before you commit any work!
+   > Make sure that you switch to your new branch before you commit any work!
 
 2. Complete your assigned TODO and make a pull request on GitHub. In your pull request,
    briefly describe what your TODO was and how you implemented it. If you aren't sure
@@ -165,7 +180,7 @@ With the work divided up, your team should complete the TODOs through a sequence
 
 And that's it; your team should now have a working logout use case!
 
-You can demo your code to your TA to confirm that you are done.
+Your team can demo your code to your TA to confirm that you are done.
 
 ---
 
@@ -250,7 +265,7 @@ the view's `stateChanged` method which will update the view based on the updated
 This can be visualized as a sequence diagram as follows:
 
 > Note: this diagram has been simplified to focus on the high-level flow of information;
-> the actual stack trace includes some additional intermediate calls which you can see if
+> the actual stack trace includes some additional calls which you can see if
 > you step through the code in the debugger or manually click through the code.
 
 ![sequence diagram of the LoginPresenter code](images/login_presenter_sequence_diagram.png)
