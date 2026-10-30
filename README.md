@@ -7,3 +7,5 @@ The code demonstrates the structure for several use cases related to:
 - user sign up
 - log in, and
 - updating the user password.
+
+Please see [LAB_INSTRUCTIONS.md](LAB_INSTRUCTIONS.md) for the lab instructions related to this repo.
