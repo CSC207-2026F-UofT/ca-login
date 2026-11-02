@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class LoggedInViewModel {
 
-    private final List<LoggedInViewModelListener> listeners = new ArrayList<>();
+    private static final List<LoggedInViewModelListener> listeners = new ArrayList<>();
 
     public static final String VIEW_NAME = "logged in";
 
