@@ -26,7 +26,7 @@ public class LoggedInViewModel {
         listeners.add(listener);
     }
 
-    public void notifyStateChanged() {
+    public static void notifyStateChanged() {
         for (LoggedInViewModelListener listener : listeners) {
             listener.stateChanged();
         }
