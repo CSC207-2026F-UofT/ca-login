@@ -28,8 +28,14 @@ Below are how the settings might look if you add branch protection rules:
 
 Open the project in IntelliJ. Open [Main.java](src/main/java/app/Main.java) and read it as a team.
 - What are the currently implemented Views and Use Cases in the program?
+Use cases: signup, login and change password; views: Login, Loggedin and signup
+
 - Which Use Cases are triggered from each View?
+Signup use case triggers login view model, Login use case triggers login view model, Change password triggers
+logged-in view model.
+
 - Which implementation of data persistence is `app.Main` using?
+Uses local csv file, 'users.csv'
 
 > Observe that the main method makes use of the [AppBuilder](src/main/java/app/AppBuilder.java) class which
 > is responsible for constructing our CA engine for each use case of the application.
@@ -145,8 +151,8 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 `LogoutInteractor.java` (tip: refer to `ChangePasswordInteractor.java` for similar code)
 
-- [ ] TODO: save the DAO and Presenter in the instance variables.
-- [ ] TODO: implement the logic of the Logout Use Case
+- [X] TODO: save the DAO and Presenter in the instance variables.
+- [X] TODO: implement the logic of the Logout Use Case
 
 > Note: there is no input data necessary for this use case.
 
