@@ -26,7 +26,7 @@ public class LoginViewModel {
         listeners.add(listener);
     }
 
-    public void notifyStateChanged() {
+    public static void notifyStateChanged() {
         for (LoginViewModelListener listener : listeners) {
             listener.stateChanged();
         }
