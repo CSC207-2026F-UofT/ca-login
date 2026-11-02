@@ -3,6 +3,7 @@ package interface_adapter.logout;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
+import interface_adapter.login.LoginState;
 import interface_adapter.login.LoginViewModel;
 import use_case.logout.LogoutOutputBoundary;
 import use_case.logout.LogoutOutputData;
@@ -40,7 +41,8 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         // 3. notify so that the View that is listening is updated.
 
         LoginState state2 = loginViewModel.getState();
-        state2.setUsername(response.getUsername());
+        state2.setUsername(""); // changed to make field blank rather than contain old username
+        state2.setPassword(""); // added to make field blank
         LoginViewModel.notifyStateChanged();
         // 1. get the LoginState out of the appropriate View Model,
         // 2. set the username in the state to be the username of the user that just logged out,
