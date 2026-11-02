@@ -39,7 +39,7 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         // 2. set the username in the state to the empty string
         // 3. notify so that the View that is listening is updated.
 
-        LoginState state2 = LoginViewModel.getState();
+        LoginState state2 = loginViewModel.getState();
         state2.setUsername(response.getUsername());
         LoginViewModel.notifyStateChanged();
         // 1. get the LoginState out of the appropriate View Model,
