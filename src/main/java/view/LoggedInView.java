@@ -50,7 +50,15 @@ public class LoggedInView extends JPanel implements ActionListener, LoggedInView
         changePassword = new JButton("Change Password");
         buttons.add(changePassword);
 
-        logOut.addActionListener(this);
+        logOut.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(logOut)) {
+                            logoutController.execute();
+                        }
+                    }
+                }
+        );
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -116,6 +124,7 @@ public class LoggedInView extends JPanel implements ActionListener, LoggedInView
 
     public void setLogoutController(LogoutController logoutController) {
         // TODO: save the logout controller in the instance variable.
+        this.logoutController =  logoutController;
     }
 
     /**

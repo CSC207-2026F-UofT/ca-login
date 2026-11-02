@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class LoginViewModel {
 
-    private final List<LoginViewModelListener> listeners = new ArrayList<>();
+    private static final List<LoginViewModelListener> listeners = new ArrayList<>();
 
     public static final String VIEW_NAME = "log in";
 
@@ -26,7 +26,7 @@ public class LoginViewModel {
         listeners.add(listener);
     }
 
-    public void notifyStateChanged() {
+    public static void notifyStateChanged() {
         for (LoginViewModelListener listener : listeners) {
             listener.stateChanged();
         }
