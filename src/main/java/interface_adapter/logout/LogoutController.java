@@ -17,6 +17,6 @@ public class LogoutController {
      * Executes the Logout Use Case.
      */
     public void execute() {
-        // TODO: run the use case interactor for the logout use case
+        logoutUseCaseInteractor.execute();
     }
 }
