@@ -123,21 +123,21 @@ The TODOs are summarized below (by file) to help your team decide how to split t
 
 `Main.java` (tip: look at how other use cases have been added)
 
-- [ ] TODO: add the logout use case to the app
+- [x] TODO: add the logout use case to the app
 
 ---
 
 `LoggedInView.java` (tip: refer to the other views for similar code)
 
-- [ ] TODO: save the logout controller in the instance variable.
-- [ ] TODO: execute the logout use case through the Controller
+- [x] TODO: save the logout controller in the instance variable.
+- [x] TODO: execute the logout use case through the Controller
 
 ---
 
 `LogoutController.java` (tip: refer to the other controllers for similar code)
 
-- [ ] TODO: Save the interactor in the instance variable.
-- [ ] TODO: run the use case interactor for the logout use case
+- [x] TODO: Save the interactor in the instance variable.
+- [x] TODO: run the use case interactor for the logout use case
 
 > Note: there is no input data necessary for this use case.
 
