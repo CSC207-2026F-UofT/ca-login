@@ -14,6 +14,7 @@ public class Main {
                 .addChangePasswordUseCase()
                 .build();
 
+
         application.pack();
         application.setLocationRelativeTo(null);
         application.setVisible(true);
