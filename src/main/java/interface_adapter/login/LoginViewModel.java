@@ -1,5 +1,7 @@
 package interface_adapter.login;
 
+import interface_adapter.logout.LogoutController;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,8 @@ public class LoginViewModel {
     public static final String VIEW_NAME = "log in";
 
     private LoginState state = new LoginState();
+
+    private LogoutController logoutController;
 
     public LoginState getState() {
         return this.state;
@@ -32,4 +36,7 @@ public class LoginViewModel {
         }
     }
 
+    public void setLogoutController(LogoutController logoutController) {
+        this.logoutController = logoutController;
+    }
 }
