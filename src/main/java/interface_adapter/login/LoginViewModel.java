@@ -34,6 +34,9 @@ public class LoginViewModel {
         for (LoginViewModelListener listener : listeners) {
             listener.stateChanged();
         }
-    }
+    };
 
+    public void setLogoutController(LogoutController logoutController) {
+        this.logoutController = logoutController;
+    }
 }
