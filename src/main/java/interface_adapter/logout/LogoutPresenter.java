@@ -33,7 +33,6 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         // We also need to set the username in the LoggedInState to
         // the empty string.
 
-        // TODO: have prepareSuccessView update the LoggedInState
         // 1. get the LoggedInState out of the appropriate View Model,
         // 2. set the username in the state to the empty string
         // 3. notify so that the View that is listening is updated.
@@ -41,7 +40,6 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         loggedInState.setUsername("");
         this.loggedInViewModel.notifyStateChanged();
 
-        // TODO: have prepareSuccessView update the LoginState
         // 1. get the LoginState out of the appropriate View Model,
         // 2. set the username in the state to be the username of the user that just logged out,
         // 3. notify so that the View that is listening is updated.
