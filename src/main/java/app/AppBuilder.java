@@ -1,5 +1,6 @@
 package app;
 
+import data_access.DBUserDataAccessObject;
 import data_access.FileUserDataAccessObject;
 import entity.UserFactory;
 import interface_adapter.ViewManagerModel;
@@ -45,7 +46,11 @@ public class AppBuilder {
     // of the classes from the data_access package
 
     // DAO version using local file storage
-    final FileUserDataAccessObject userDataAccessObject = new FileUserDataAccessObject("users.csv", userFactory);
+    // final FileUserDataAccessObject userDataAccessObject = new FileUserDataAccessObject("users.csv", userFactory);
+    // Or you can use this DAO version using a database
+    final DBUserDataAccessObject userDataAccessObject = new DBUserDataAccessObject(userFactory);
+
+
 
     private SignupView signupView;
     private SignupViewModel signupViewModel;
@@ -80,10 +85,15 @@ public class AppBuilder {
     }
 
     public AppBuilder addSignupUseCase() {
-        final SignupOutputBoundary signupOutputBoundary = new SignupPresenter(viewManagerModel,
+        final SignupOutputBoundary signupOutputBoundary =
+            new SignupPresenter(viewManagerModel,
                 signupViewModel, loginViewModel);
-        final SignupInputBoundary userSignupInteractor = new SignupInteractor(
-                userDataAccessObject, signupOutputBoundary, userFactory);
+
+        final SignupInputBoundary userSignupInteractor =
+            new SignupInteractor(
+                userDataAccessObject,
+                signupOutputBoundary,
+                userFactory);
 
         SignupController controller = new SignupController(userSignupInteractor);
         signupView.setSignupController(controller);
